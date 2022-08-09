@@ -1,3 +1,14 @@
+# n8n@0.189.1
+Release date: **2022-08-05**
+
+This is a bug fix release.
+
+🐛 Bug fixes
+- 🚑 Fixed an issue with MySQL and MariaDB migrations.
+
+https://docs.n8n.io/reference/release-notes/#n8n01891
+
+---
 # n8n@0.189.0  
 Release date: **2022-08-03**
 
