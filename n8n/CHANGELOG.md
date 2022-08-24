@@ -1,16 +1,23 @@
-# n8n@0.191.0  
-Release date: **2022-08-17**
+# n8n@0.192.0  
+**Release date:** 2022-08-24  
+This release contains new features and enhancements, as well as bug fixes.
 
-This release lays the groundwork for wider community nodes support. It also includes some bug fixes.  
-## New features
-- Community nodes are now enabled based on npm availability on the host system. This allows n8n to introduce community nodes to the Desktop edition in a future release.
-- Improved in-app guidance on mapping data.
+### New features
+#### Map nested fields
+n8n@0.187.0 saw the first release of [data mapping](https://docs.n8n.io/data/data-mapping/), allowing you to drag and drop top level data from a node's **INPUT** panel into parameter fields. With this release, you can now drag and drop data from any level.
 
-## 🐛 Bug fixes
-- CLI: fix the community node tests on Postgres and MySQL.
-- Core: fix an issue preventing child workflow executions from displaying.
-- Editor: handle errors when opening settings and executions.
-- Editor: improve expression and parameters performance.
-- Public API: fix executions pagination for n8n instances using Postgres and MySQL.
+* Core and editor: support `pairedItem` for pinned data.
+* Core and editor: integrate PostHog.
+* Core: add a command to scripts making it easier to launch n8n with tunnel.
+* CLI: notify external hooks about user profile and password changes.
 
-https://docs.n8n.io/reference/release-notes/#n8n01910
+### :bug: Bug fixes
+
+* Core: account for the enabled state in the first pinned trigger in a workflow.
+* Core: fix pinned trigger execution.
+* CLI: handle unparseable strings during JSON key migration.
+* CLI: fix the excessive instantiation type error for flattened executions.
+* CLI: initiate the nodes directory to ensure `npm install` succeeds.
+* CLI: ensure tsc build errors also cause Turbeorepo builds to fail.
+* NextCloud node: fix an issue with credential verification.
+* Freshdesk node: fix an issue where the getAll operation required non-existant options.
