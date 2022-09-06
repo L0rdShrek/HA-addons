@@ -1,6 +1,6 @@
 {
   "name": "AFFiNE.PRO",
-  "version": "2022.09.06.1",
+  "version": "2022.09.06.2",
   "slug": "hass-affine",
   "description": "hass-affine by niefuend",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
@@ -15,6 +15,7 @@
   "panel_admin": true,
   "panel_icon": "mdi:chevron-up",
   "ingress": true,
+  "ingress_port": 3123,
   "ingress_stream": true,
   "ports": {
     "3000/tcp": 3123
