@@ -1,6 +1,6 @@
 {
-  "name": "Home Assistant - AFFiNE.PRO",
-  "version": "2022.09.06",
+  "name": "AFFiNE.PRO",
+  "version": "2022.09.06.1",
   "slug": "hass-affine",
   "description": "hass-affine by niefuend",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
@@ -13,12 +13,11 @@
   "map": ["ssl"],
   "apparmor": true,
   "panel_admin": true,
-  "panel_icon": "mdi:family-tree",
+  "panel_icon": "mdi:chevron-up",
   "ingress": true,
-  "ingress_port": 3000,
   "ingress_stream": true,
   "ports": {
-    "3000/tcp": 3000
+    "3000/tcp": 3123
   },
   "ports_description": {
     "3000/tcp": "AFFiNE.PRO Web interface"
