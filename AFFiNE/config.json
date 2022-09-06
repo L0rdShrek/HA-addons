@@ -1,6 +1,6 @@
 {
   "name": "AFFiNE.PRO",
-  "version": "2022.09.06.3",
+  "version": "2022.09.06.4",
   "slug": "hass-affine",
   "description": "hass-affine by niefuend",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
@@ -18,7 +18,7 @@
   "ingress_port": 3000,
   "ingress_stream": true,
   "ports": {
-    "3000/tcp": null
+    "3000/tcp": 3123
   },
   "ports_description": {
     "3000/tcp": "Not required for Ingress"
