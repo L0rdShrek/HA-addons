@@ -1,0 +1,36 @@
+{
+  "name": "Home Assistant - AFFiNE.PRO",
+  "version": "2022.09.06",
+  "slug": "hass-affine",
+  "description": "hass-affine by niefuend",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "application",
+  "stage": "experimental",
+  "webui": "[PROTO:ssl]://[HOST]:[PORT:3000]/",
+  "boot": "auto",
+  "icon": "icon.png",
+  "logo": "icon.png",
+  "map": ["ssl"],
+  "apparmor": true,
+  "panel_admin": true,
+  "panel_icon": "mdi:family-tree",
+  "ingress": true,
+  "ingress_port": 3000,
+  "ingress_stream": true,
+  "ports": {
+    "3000/tcp": 3000
+  },
+  "ports_description": {
+    "3000/tcp": "AFFiNE.PRO Web interface"
+  },
+  "options": {
+    "timezone": "Europe/Berlin",
+    "certfile": "fullchain.pem",
+    "keyfile": "privkey.pem"
+  },
+  "schema": {
+    "timezone": "str?",
+    "certfile": "str?",
+    "keyfile": "str?"
+  }
+}
