@@ -1,12 +1,11 @@
 {
   "name": "AFFiNE.PRO",
-  "version": "2022.09.06.7",
+  "version": "2022.09.06.8",
   "slug": "affine",
   "description": "hass-affine by niefuend",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "application",
   "stage": "experimental",
-  "webui": "http://[HOST]:[PORT:3000]/",
   "boot": "auto",
   "icon": "icon.png",
   "logo": "icon.png",
