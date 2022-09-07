@@ -10,9 +10,6 @@ RUN apk add --no-cache --update graphicsmagick tzdata git su-exec jq sqlite
 # # Set a custom user to not have n8n run as root
 USER root
 
-#COPY warmup.sh /tmp/warmup.sh
-#CMD ["sh", "/tmp/warmup.sh"]
-
 # Install n8n and the also temporary all the packages
 # it needs to build it correctly.
 RUN apk --update add --virtual build-dependencies python build-base ca-certificates && \
