@@ -1,7 +1,7 @@
 {
   "name": "n8n",
   "version": "0.193.4",
-  "slug": "n8n",
+  "slug": "hass-n8n",
   "description": "hass-n8n forked from Rbillon59 by niefuend",
   "arch": ["amd64"],
   "startup": "application",
