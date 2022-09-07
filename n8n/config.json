@@ -1,9 +1,9 @@
 {
-  "name": "Home Assistant - n8n",
+  "name": "n8n",
   "version": "0.193.4",
-  "slug": "hass-n8n",
+  "slug": "n8n",
   "description": "hass-n8n forked from Rbillon59 by niefuend",
-  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "arch": ["amd64"],
   "startup": "application",
   "stage": "experimental",
   "webui": "[PROTO:ssl]://[HOST]:[PORT:5678]/",
