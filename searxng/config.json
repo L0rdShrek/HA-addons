@@ -9,7 +9,7 @@
   "boot": "auto",
   "icon": "icon.svg",
   "logo": "icon.svg",
-  "map": ["ssl"],
+  "map": ["ssl", "addons:rw"],
   "apparmor": true,
   "panel_admin": true,
   "panel_icon": "mdi:cloud-search",
