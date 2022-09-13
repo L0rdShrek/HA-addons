@@ -1,6 +1,6 @@
 {
   "name": "searxng",
-  "version": "2022.07.02",
+  "version": "2022.09.13",
   "slug": "hass-searxng",
   "description": "hass-searxng by niefuend",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
@@ -9,7 +9,7 @@
   "boot": "auto",
   "icon": "icon.svg",
   "logo": "icon.svg",
-  "map": ["ssl"],
+  "map": ["ssl", "addons:rw"],
   "apparmor": true,
   "panel_admin": true,
   "panel_icon": "mdi:cloud-search",
