@@ -11,6 +11,7 @@ mkdir -p "${N8N_PATH_LOCAL}/.n8n"
 echo "Start n8n"
 echo "CONFIG:"
 cat $CONFIG_PATH
+
 echo "Set env variables"
 #####################
 ## USER PARAMETERS ##
@@ -22,7 +23,6 @@ echo "Set env variables"
 export N8N_BASIC_AUTH_ACTIVE="$(jq --raw-output '.auth // empty' $CONFIG_PATH)"
 export N8N_BASIC_AUTH_USER="$(jq --raw-output '.auth_username // empty' $CONFIG_PATH)"
 export N8N_BASIC_AUTH_PASSWORD="$(jq --raw-output '.auth_password // empty' $CONFIG_PATH)"
-
 
 export DB_TYPE="$(jq --raw-output '.db_type // empty' $CONFIG_PATH)"
 
@@ -42,7 +42,6 @@ case "${DB_TYPE}" in
     echo "sqlite"
     ;;
 esac
-
 
 export GENERIC_TIMEZONE="$(jq --raw-output '.timezone // empty' $CONFIG_PATH)"
 export WEBHOOK_URL="$(jq --raw-output '.webhook_url // empty' $CONFIG_PATH)"
@@ -65,17 +64,16 @@ if [ -z "${N8N_BASIC_AUTH_USER}" ] || [ -z "${N8N_BASIC_AUTH_ACTIVE}" ]; then
     unset N8N_BASIC_AUTH_PASSWORD
 fi
 
-
 ###########
 ## MAIN  ##
 ###########
-
 
 if [ -d ${N8N_PATH_LOCAL} ] ; then
   chmod o+rx ${N8N_PATH_LOCAL}
   chown -R node ${N8N_PATH_LOCAL}/.n8n
   ln -s ${N8N_PATH_LOCAL}/.n8n /home/node/
 fi
+
 chmod -R 777 /usr/local/lib/node_modules/n8n
 chown -R node /home/node
 

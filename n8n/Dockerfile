@@ -8,25 +8,17 @@ ARG N8N_VERSION=0.196.0
 
 RUN if [ -z "$N8N_VERSION" ] ; then echo "The N8N_VERSION argument is missing!" ; exit 1; fi
 
-# Update everything and install needed dependencies
-RUN apk add --no-cache --update graphicsmagick tzdata tini git su-exec jq sqlite
-
-# # Set a custom user to not have n8n run as root
-USER root
-
-# Install n8n and the also temporary all the packages
-# it needs to build it correctly.
-RUN apk --update add --virtual build-dependencies python build-base ca-certificates && \
-    npm_config_user=root npm install -g  sqlite3 --save && \
-    npm_config_user=root npm install -g full-icu n8n@${N8N_VERSION} && \
-    apk del build-dependencies
+# Install n8n
+RUN apk add --no-cache --update git graphicsmagick tini tzdata ca-certificates su-exec jq && \
+	npm install -g n8n@${N8N_VERSION} full-icu && \
+	rm -rf /var/cache/apk/* /root/.npm /tmp/*
 
 # Install fonts
 RUN apk --no-cache add --virtual fonts msttcorefonts-installer fontconfig && \
-    update-ms-fonts && \
-    fc-cache -f && \
-    apk del fonts && \
-    find  /usr/share/fonts/truetype/msttcorefonts/ -type l -exec unlink {} \; && \
+	update-ms-fonts && \
+	fc-cache -f && \
+	apk del fonts && \
+	find  /usr/share/fonts/truetype/msttcorefonts/ -type l -exec unlink {} \; && \
 	rm -rf /var/cache/apk/* /tmp/*
 
 ENV NODE_ICU_DATA /usr/local/lib/node_modules/full-icu
@@ -37,6 +29,7 @@ COPY docker-entrypoint.sh /tmp/docker-entrypoint.sh
 ENTRYPOINT ["sh", "/tmp/docker-entrypoint.sh"]
 
 EXPOSE 5678/tcp
+
 
 # Build arguments
 ARG BUILD_ARCH
