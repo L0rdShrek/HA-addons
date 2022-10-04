@@ -76,7 +76,7 @@ if [ -d ${N8N_PATH_LOCAL} ] ; then
   chown -R node ${N8N_PATH_LOCAL}/.n8n
   ln -s ${N8N_PATH_LOCAL}/.n8n /home/node/
 fi
-
+chmod -R 777 /usr/local/lib/node_modules/n8n
 chown -R node /home/node
 
 if [ "$#" -gt 0 ]; then
