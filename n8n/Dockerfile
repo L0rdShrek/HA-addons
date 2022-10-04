@@ -1,11 +1,15 @@
-FROM node:14.15-alpine
+ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:3.16
+# hadolint ignore=DL3006
+FROM ${BUILD_FROM}
+
+RUN apk add --update nodejs npm
 
 ARG N8N_VERSION=0.196.0
 
 RUN if [ -z "$N8N_VERSION" ] ; then echo "The N8N_VERSION argument is missing!" ; exit 1; fi
 
 # Update everything and install needed dependencies
-RUN apk add --no-cache --update graphicsmagick tzdata git su-exec jq sqlite
+RUN apk add --no-cache --update graphicsmagick tzdata tini git su-exec jq sqlite
 
 # # Set a custom user to not have n8n run as root
 USER root
@@ -22,7 +26,8 @@ RUN apk --no-cache add --virtual fonts msttcorefonts-installer fontconfig && \
     update-ms-fonts && \
     fc-cache -f && \
     apk del fonts && \
-    find  /usr/share/fonts/truetype/msttcorefonts/ -type l -exec unlink {} \;
+    find  /usr/share/fonts/truetype/msttcorefonts/ -type l -exec unlink {} \; && \
+	rm -rf /var/cache/apk/* /tmp/*
 
 ENV NODE_ICU_DATA /usr/local/lib/node_modules/full-icu
 
@@ -32,7 +37,6 @@ COPY docker-entrypoint.sh /tmp/docker-entrypoint.sh
 ENTRYPOINT ["sh", "/tmp/docker-entrypoint.sh"]
 
 EXPOSE 5678/tcp
-
 
 # Build arguments
 ARG BUILD_ARCH
