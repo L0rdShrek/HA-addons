@@ -1,6 +1,6 @@
 {
   "name": "AFFiNE.PRO",
-  "version": "2022.09.06.9",
+  "version": "2022.10.0",
   "slug": "affine",
   "description": "hass-affine by niefuend",
   "arch": ["amd64"],
