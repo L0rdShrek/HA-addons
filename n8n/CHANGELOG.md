@@ -1,48 +1,44 @@
 # n8n@0.198.2
 View the [commits](https://github.com/n8n-io/n8n/compare/n8n@0.198.1...n8n@0.198.2) for this version.  
-**Release date**: 2022-10-14  L0rdShrek/HA-addons#53  
-This release fixes a bug affecting scrolling through parameter lists.
-# n8n@0.198.1
-View the [commits](https://github.com/n8n-io/n8n/compare/n8n@0.198.0...n8n@0.198.1) for this version.  
-**Release date**: 2022-10-14  L0rdShrek/HA-addons#53  
-This is a bug fix release.
-## Bug fixes
-- Editor: change the initial position of the Start node.
-- Editor: align JSON view properties with their values.
-- Editor: fix BASE_PATH for Vite dev mode.
-- Editor: fix data pinning success source.
-## Contributor
-- [Bram Kn](https://github.com/bramkn)
-# n8n@0.198.0
-View the [commits](https://github.com/n8n-io/n8n/compare/n8n@0.197.1...n8n@0.198.0) for this version.  
-**Release date**: 2022-10-14  L0rdShrek/HA-addons#53  
-Please note that this version contains breaking changes to the Merge node. You can read more about them [here](https://github.com/n8n-io/n8n/blob/master/packages/cli/BREAKING-CHANGES.md#01980).
-## 🚀 New features
-- Editor: update the expressions display.
-- Editor: update the n8n-menu component.
+**Release date**: 2022-10-21  L0rdShrek/HA-addons#55  
+This release includes new nodes, an improved workflow UI, performance improvements, and bug fixes.
+
+## New features
+New workflow experience  
+This release brings a collection of UI changes, aimed at improving the workflow experience for users. This includes:
+- Removing the Start node, and adding help to guide users to find a trigger node.
+- Improved node search.
+- 🚀 New nodes: Manual Trigger and Execute Workflow Trigger.
+- Core: block workflow updates on interim changes.
+- Core: enable sending client credentials in the body of API calls.
+- Editor: add automatic credential selection for new nodes.
+
 ## New nodes
-### Code node
-This release introduces the [Code node](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code/). This node replaces both the Function and Function Item nodes. Refer to the Code node documentation for more information.
-### Venafi TLS Protect Cloud trigger node
-Start a workflow in response to events in your Venafi Cloud service.
+### Compare node#
+The Compare Datasets node helps you compare data from two input streams. You can find documentation for the new node here.
+### Execute Workflow Trigger node#
+The Execute Workflow Trigger starts a workflow in response to another workflow. You can find documentation for the new node here.
+### Manual Trigger node#
+The Manual Trigger allows you to start a workflow by clicking Execute Workflow, without any option to run it automatically. You can find documentation for the new node here.
+### Schedule Trigger node
+This release introduces the Schedule Trigger node, replacing the Cron node. You can find documentation for the new node here.
 ## 🧰 Node enhancements
-- Citrix ADC node: add Certificate Install operation.
-- Kafka node: add a Use key option for messages.
-- MySQL node: use the resource locator component for table parameters, making it easier for users to browse and select their database fields from within n8n.
+- Hubspot node: you can now use your Hubspot credentials in the HTTP Request node to make a custom API call.
+- Rundeck node: you can now use your Rundeck credentials in the HTTP Request node to make a custom API call.
 ## 🐛 Bug fixes
-- Core, Editor: prevent overlap between running and pinning data.
-- Core: expression evaluation of processes now respects N8N_BLOCK_ENV_ACCESS_IN_NODE.
-- Editor: ensure the Axios base URL still works when hosted in a subfolder.
-- Editor: fixes for horizontal scrollbar rendering.
-- Editor: ensure the menu closes promptly when loading a credentials page.
-- Editor: menu UI fixes.
-- Box node: fix an issue that was causing the Create Folder operation to show extra items.
-- GSuite Admin node: resolve issue that was causing the User Update operation to fail.
-- GitLab trigger node: ensure this node activates reliably.
-- HTTP Request node: ensure OAuth credentials work properly with predefined credentials.
-- KoboToolbox node: fix the hook logs.
-- SeaTable node: ensure link items show in response.
-- Zoom node: resolve an issue that was causing missing output items.
-## Contributor
-- [Jakob Backlund](https://github.com/jbacklund)
-- [Yan Jouanique](https://github.com/Yann-J)
+- Editor: fix a hover bug in the bottom menu.
+- Editor: resolve performance issues when opening a node, or editing a code node, with a large amount of data.
+- Editor: ensure workflows always stop when clicking the stop button.
+- Editor: fix a bug that was causing text highlighting when mapping data in Firefox.
+- Editor: ensure correct linting in the Code node editor.
+- Editor: handle null values in table view.
+- Elasticsearch node: fix a pagination issue.
+- Google Drive node: fix typo.
+- HTTP Request node: avoid errors when a response doesn't provide a content type.
+- n8n node: fix a bug that was preventing the resource locator component from returning all items.
+## 📚 Contributors#
+- AndLLA
+- Nicholas Penree
+- vcrwr
+
+https://docs.n8n.io/reference/release-notes/#n8n01990
