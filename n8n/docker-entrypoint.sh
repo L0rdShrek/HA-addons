@@ -79,8 +79,8 @@ if [ -d ${N8N_PATH_LOCAL} ] ; then
 fi
 
 chmod -R 777 /usr/local/lib/node_modules/n8n
-chmod -R 777 /home/node
-chown -R node /home/node
+#chmod -R 777 /home/node
+#chown -R node /home/node
 
 if [ "$#" -gt 0 ]; then
   echo "Got started with arguments"
