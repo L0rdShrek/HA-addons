@@ -1,4 +1,5 @@
-FROM node:14.15-alpine
+ARG NODE_VERSION=16
+FROM node:${NODE_VERSION}-alpine
 
 ARG N8N_VERSION=0.204.0
 
