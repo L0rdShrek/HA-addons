@@ -85,10 +85,14 @@ chmod -R 777 /usr/local/lib/node_modules/n8n
 
 echo "last step"
 
-if [ "$#" -gt 0 ]; then
-  echo "Got started with arguments"
-  exec su-exec node "$@"
-else
-  echo "Got started without arguments"
-  exec su-exec node n8n
-fi
+
+echo "Got started without arguments"
+exec su-exec node n8n
+
+#if [ "$#" -gt 0 ]; then
+#  echo "Got started with arguments"
+#  exec su-exec node "$@"
+#else
+#  echo "Got started without arguments"
+#  exec su-exec node n8n
+#fi
