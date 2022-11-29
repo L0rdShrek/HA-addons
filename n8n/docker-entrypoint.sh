@@ -10,6 +10,7 @@ mkdir -p "${N8N_PATH_LOCAL}/.n8n"
 #####################
 echo "Start n8n"
 echo "CONFIG:"
+
 cat $CONFIG_PATH
 
 echo "Set env variables"
@@ -78,9 +79,9 @@ chmod -R 777 /usr/local/lib/node_modules/n8n
 chown -R node /home/node
 
 if [ "$#" -gt 0 ]; then
-  # Got started with arguments
+  echo "Got started with arguments"
   exec su-exec node "$@"
 else
-  # Got started without arguments
+  echo "Got started without arguments"
   exec su-exec node n8n
 fi
