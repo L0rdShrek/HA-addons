@@ -32,11 +32,13 @@ case "${DB_TYPE}" in
     export DB_MYSQLDB_HOST="$(jq --raw-output '.db_host // empty' $CONFIG_PATH)"
     export DB_MYSQLDB_USER="$(jq --raw-output '.db_user // empty' $CONFIG_PATH)"
     export DB_MYSQLDB_PASSWORD="$(jq --raw-output '.db_password // empty' $CONFIG_PATH)"
+    echo "MYSQLDB"
     ;;
   "postgresdb")
     export DB_POSTGRESDB_HOST="$(jq --raw-output '.db_host // empty' $CONFIG_PATH)"
     export DB_POSTGRESDB_USER="$(jq --raw-output '.db_user // empty' $CONFIG_PATH)"
     export DB_POSTGRESDB_PASSWORD="$(jq --raw-output '.db_password // empty' $CONFIG_PATH)"
+    echo "POSTGRESDB"
     break
     ;;
   *)
@@ -64,11 +66,11 @@ if [ -z "${N8N_BASIC_AUTH_USER}" ] || [ -z "${N8N_BASIC_AUTH_ACTIVE}" ]; then
     unset N8N_BASIC_AUTH_USER
     unset N8N_BASIC_AUTH_PASSWORD
 fi
-
+echo "Done env variables"
 ###########
 ## MAIN  ##
 ###########
-
+echo "Main"
 if [ -d ${N8N_PATH_LOCAL} ] ; then
   chmod o+rx ${N8N_PATH_LOCAL}
   chown -R node ${N8N_PATH_LOCAL}/.n8n
