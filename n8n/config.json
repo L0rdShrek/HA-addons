@@ -3,7 +3,7 @@
   "version": "0.206.1",
   "slug": "hass-n8n",
   "description": "hass-n8n forked from Rbillon59 by niefuend",
-  "arch": ["amd64"],
+  "arch": ["amd64","aarch64"],
   "stage": "experimental",
   "webui": "[PROTO:ssl]://[HOST]:[PORT:5678]/",
   "icon": "icon.png",
