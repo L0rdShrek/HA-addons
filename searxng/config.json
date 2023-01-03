@@ -1,6 +1,6 @@
 {
   "name": "searxng",
-  "version": "2022.10.0",
+  "version": "2023.01.0",
   "slug": "hass-searxng",
   "description": "hass-searxng by niefuend",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
