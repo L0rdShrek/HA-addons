@@ -12,6 +12,10 @@ _Example add-on to use as a blueprint for new add-ons._
 
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 
+![Supports aarch64 Architecture][aarch64-shield]
+
+[aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
+
 _The workflow automation platform that doesn't box you in, that you never outgrow._
 
 
