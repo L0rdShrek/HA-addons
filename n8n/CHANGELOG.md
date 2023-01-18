@@ -1,21 +1,14 @@
-# n8n@0.211.1
+# n8n@0.211.2
 
-View the [commits](https://github.com/n8n-io/n8n/compare/n8n@0.211.0...n8n@0.211.1) for this version.  
-**Release date**: 2023-01-16 L0rdShrek/HA-addons#89  
-This is a bug fix release. It resolves major issues with 0.211.0.
+View the [commits](https://github.com/n8n-io/n8n/compare/n8n@0.211.1...n8n@0.211.2) for this version.  
+**Release date**: 2023-01-17 L0rdShrek/HA-addons#91  
+This release contains a bug fix for community nodes, and a new trigger node.
 
 ## New features
-- Editor: suppress validation errors for freshly added nodes.
-
-## 🧰 Node enhancements 
-- Google Ads node: update the API version to 11.
-- Google Drive Trigger node: start using the resource locator component.
-
+- **Google Sheets trigger node**
+  This release adds a new [Google Sheets trigger node](https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.googlesheetstrigger/). You can now start workflows in response to row changes or new rows in a Google Sheet.
 
 ## 🐛 Bug fixes
-- Build CLI to fix Postgres and MySQL test runs.
-- Extend date functions clobbering plus/minus.
-- Extension deep compare not quite working for some primitives.
-- Upgrade jsonwebtoken to address CVE-2022-23540.
+- Fixes an issue that was preventing users from installing community nodes.
 
-https://docs.n8n.io/reference/release-notes/#n8n02111
+https://docs.n8n.io/reference/release-notes/#n8n02112
