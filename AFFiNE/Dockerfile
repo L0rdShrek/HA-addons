@@ -1,4 +1,4 @@
-FROM ghcr.io/toeverything/affine:nightly-latest
+FROM ghcr.io/toeverything/affine-self-hosted:latest
 
 
 # Build arguments

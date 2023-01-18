@@ -1,6 +1,6 @@
 {
   "name": "AFFiNE.PRO",
-  "version": "2023.01.18",
+  "version": "2023.01.18.1",
   "slug": "affine",
   "description": "hass-affine by niefuend",
   "arch": ["amd64"],
