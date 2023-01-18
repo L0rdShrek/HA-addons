@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: ArchiSteamFarm
-version: "5.4.0.3"
+version: "5.4.1.11"
 slug: archisteamfarm
 description: C# application with primary purpose of farming Steam cards from multiple accounts simultaneously.
 url: "https://github.com/L0rdShrek/HA-addons/tree/main/ArchiSteamFarm"
