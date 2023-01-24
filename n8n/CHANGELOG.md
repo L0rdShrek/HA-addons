@@ -1,14 +1,21 @@
-# n8n@0.211.2
+# n8n@0.212.0
 
-View the [commits](https://github.com/n8n-io/n8n/compare/n8n@0.211.1...n8n@0.211.2) for this version.  
-**Release date**: 2023-01-17 L0rdShrek/HA-addons#91  
-This release contains a bug fix for community nodes, and a new trigger node.
+View the [commits](https://github.com/n8n-io/n8n/compare/n8n@0.211.2...n8n@0.212.0) for this version.  
+**Release date**: 2023-01-19 L0rdShrek/HA-addons#93  
+This release contains enhancements to the Item Lists node, and bug fixes.
 
 ## New features
-- **Google Sheets trigger node**
-  This release adds a new [Google Sheets trigger node](https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.googlesheetstrigger/). You can now start workflows in response to row changes or new rows in a Google Sheet.
+- This release adds experimental support for more Prometheus metrics. Self-hosting users can configure Prometheus using [environment variables](https://docs.n8n.io/hosting/environment-variables/environment-variables/).
+
+## 🧰 Node enhancements 
+- The Item Lists node now supports a Summarize operation. This acts similarly to generating pivot tables in Excel, allowing you to aggregate and compare data.
 
 ## 🐛 Bug fixes
-- Fixes an issue that was preventing users from installing community nodes.
+- Core: revert a lint rule @typescript-eslint/prefer-nullish-coalescing.
+- Editor: allow special characters in node selector completion.
+- GitLab Node: update the credential test endpoint.
+- Gmail Trigger Node: resolve an issue that was preventing filter by labels from working.
+- HTTP Request Node: ensure node enforces the requirement for valid JSON input.
+- HTTP Request Node: convert responses to text for all formats, including JSON.
 
-https://docs.n8n.io/reference/release-notes/#n8n02112
+https://docs.n8n.io/reference/release-notes/#n8n02120
