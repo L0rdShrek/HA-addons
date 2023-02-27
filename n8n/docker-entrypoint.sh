@@ -59,6 +59,15 @@ export NODE_FUNCTION_ALLOW_BUILTIN="$(jq --raw-output '.allow_builtin // empty' 
 
 export N8N_DIAGNOSTICS_ENABLED="$(jq --raw-output '.telemetry // empty' $CONFIG_PATH)"
 
+
+export EXECUTIONS_DATA_PRUNE="$(jq --raw-output '.data_pruning // empty' $CONFIG_PATH)"
+if [ ${EXECUTIONS_DATA_PRUNE} ]; then
+    export EXECUTIONS_DATA_MAX_AGE="$(jq --raw-output '.data_max_age // empty' $CONFIG_PATH)"
+    export EXECUTIONS_DATA_PRUNE_MAX_COUNT="$(jq --raw-output '.data_max_count // empty' $CONFIG_PATH)"
+
+fi
+
+
 export N8N_USER_FOLDER="${N8N_PATH_LOCAL}"
 
 if [ -z "${N8N_BASIC_AUTH_USER}" ] || [ -z "${N8N_BASIC_AUTH_ACTIVE}" ]; then
