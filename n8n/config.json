@@ -1,6 +1,6 @@
 {
   "name": "n8n",
-  "version": "0.217.1",
+  "version": "0.217.1.1",
   "slug": "hass-n8n",
   "description": "hass-n8n forked from Rbillon59 by niefuend",
   "arch": ["amd64","aarch64"],
@@ -33,6 +33,9 @@
     "allow_builtin": "*",
     "timezone": "Europe/Berlin",
     "telemetry": false,
+    "data_pruning": false,
+    "data_max_age": "168",
+    "data_max_count": "50000",
     "certfile": "fullchain.pem",
     "keyfile": "privkey.pem"
   },
@@ -52,6 +55,9 @@
     "allow_builtin": "str?",
     "timezone": "str?",
     "telemetry": "bool",
+    "data_pruning": "bool",
+    "data_max_age": "str?",
+    "data_max_count": "str?",
     "certfile": "str?",
     "keyfile": "str?"
   }
