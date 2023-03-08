@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: SNOWFLAKE
-version: "2023.02.11"
+version: "2023.03.08"
 slug: snowflake
 description: Snowflake is a system that allows people from all over the world to access censored websites and applications.
 url: "https://github.com/L0rdShrek/HA-addons/tree/main/snowflake"
