@@ -1,31 +1,35 @@
-# n8n@0.218.0
+# n8n@0.219.0
 View the [commits](https://github.com/n8n-io/n8n/compare/n8n@0.217.2...n8n@0.218.8) for this version.  
-**Release date**: 2023-03-02 L0rdShrek/HA-addons#123  
-This release contains node enhancements, bug fixes, and new features that lay groundwork for upcoming releases, along with some UX improvements.
+**Release date**: 2023-03-09 L0rdShrek/HA-addons#126  
 
 ## New features
-- Add distribution test tracking.
-- Add events to enable onboarding checklist.
-- Core: add SAML login setup (for upcoming feature).
-- Core: add SAML settings and consolidate LDAP under SSO (for upcoming feature).
-- Editor: add missing documentation to autocomplete items for inline code editor.
-- Editor: Show parameter hint on multiline inputs.
+- Core: add advancedFilters feature flag.
+- Core: add SAML post and test endpoints.
+- Core: add SAML XML validation.
+- Core: limit user changes when SAML is enabled.
+- Core: refactor and add SAML preferences for service provider instance.
+- Editor: don't automatically add the manual trigger when the user adds another node.
+- Editor: redirect users to canvas if they don't have any workflows.
 
 ## 🧰 Node enhancements
-- JIRA node: support binary streaming for very large binary files.
-- OpenAI node: add support for ChatGPT.
-- Telegram node: add parse mode option to Send Document operation.
+- Cal Trigger Node: update to support v2 webhooks.
+- HTTP Request Node: move from binary buffer to binary streaming.
+- Mattermost Node: add self signed certificate support.
+- Microsoft SQL Node: add support for self signed certificates.
+- Mindee Node: add support for v4 API.
+- Slack Node: move from binary buffer to binary streaming.
 
 ## 🐛 Bug fixes
-- Core: fix execution pruning queries.
-- Core: fix filtering workflow by tags.
-- Core: revert isPending check on the user entity.
-- Fix issues with nodes missing in nodes panel.
-- Fix mapping paths when appending to empty expression.
-- Item Lists Node: tweak item list summarize field naming.
-- Prevent executions from displaying as running forever.
-- Show Execute Workflow node in the nodes panel.
-- Show RabbitMQ node in the nodes panel.
-- Stop showing mapping hint after mapping.
+- Core: allow serving icons for custom nodes with npm scoped names.
+- Core: rename advancedFilters to advancedExecutionFilters.
+- Editor: fix ElButton overrides.
+- Editor: only fetch new versions at app launch.
+- Fetch credentials on workflows view to include in duplicated workflows.
+- Fix color discrepancies for executions list items.
+- OpenAI Node: fix issue with expressions not working with chat complete.
+- OpenAI Node: simplify code.
 
-https://docs.n8n.io/release-notes/#n8n02180
+## Contributors
+[Syed Ali Shahbaz](https://github.com/alishaz-polymath)
+
+https://docs.n8n.io/release-notes/#n8n02190
