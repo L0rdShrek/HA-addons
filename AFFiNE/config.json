@@ -1,20 +1,15 @@
 {
   "name": "AFFiNE.PRO",
-  "version": "2023.03.08",
+  "version": "2023.04.10",
   "slug": "affine",
   "description": "hass-affine by niefuend",
   "arch": ["amd64"],
-  "startup": "application",
   "stage": "experimental",
-  "boot": "auto",
-  "icon": "icon.png",
-  "logo": "icon.png",
   "map": ["ssl"],
   "panel_icon": "mdi:chevron-up",
   "panel_title": "AFFiNE.PRO",
   "ingress": true,
   "ingress_port": 3000,
-  "ingress_stream": false,
   "ports": {
     "3000/tcp": 3123
   },
