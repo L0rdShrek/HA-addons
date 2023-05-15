@@ -1,7 +1,8 @@
 ARG NODE_VERSION=16
 FROM node:${NODE_VERSION}-alpine
 
-ARG N8N_VERSION=0.227.0
+ARG N8N_VERSION=0.228.1
+
 
 RUN if [ -z "$N8N_VERSION" ] ; then echo "The N8N_VERSION argument is missing!" ; exit 1; fi
 
