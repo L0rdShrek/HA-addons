@@ -8,81 +8,71 @@ mkdir -p "${N8N_PATH_LOCAL}/.n8n"
 #####################
 ##  STARTUP DEBUG  ##
 #####################
-echo "Start n8n"
-echo "CONFIG:"
+bashio::log.info "Start n8n"
+bashio::log.info "CONFIG:"
 
 cat $CONFIG_PATH
 
-echo "Set env variables"
+bashio::log.info "Set env variables"
 #####################
 ## USER PARAMETERS ##
 #####################
 
 # REQUIRED
+N8N_BASIC_AUTH_ACTIVE="$(bashio::config 'auth')"
+N8N_BASIC_AUTH_USER="$(bashio::config 'auth_username')"
+N8N_BASIC_AUTH_PASSWORD="$(bashio::config 'auth_password')"
 
-
-export N8N_BASIC_AUTH_ACTIVE="$(jq --raw-output '.auth // empty' $CONFIG_PATH)"
-export N8N_BASIC_AUTH_USER="$(jq --raw-output '.auth_username // empty' $CONFIG_PATH)"
-export N8N_BASIC_AUTH_PASSWORD="$(jq --raw-output '.auth_password // empty' $CONFIG_PATH)"
-
-export DB_TYPE="$(jq --raw-output '.db_type // empty' $CONFIG_PATH)"
+DB_TYPE="$(bashio::config 'db_type')"
 
 case "${DB_TYPE}" in
   "mariadb" | "mysqldb")
-    export DB_MYSQLDB_HOST="$(jq --raw-output '.db_host // empty' $CONFIG_PATH)"
-    export DB_MYSQLDB_USER="$(jq --raw-output '.db_user // empty' $CONFIG_PATH)"
-    export DB_MYSQLDB_PASSWORD="$(jq --raw-output '.db_password // empty' $CONFIG_PATH)"
-    echo "MYSQLDB"
+    DB_MYSQLDB_HOST="$(bashio::config 'db_host')"
+    DB_MYSQLDB_USER="$(bashio::config 'db_user')"
+    DB_MYSQLDB_PASSWORD="$(bashio::config 'db_password')"
+    bashio::log.info "MYSQLDB"
     ;;
   "postgresdb")
-    export DB_POSTGRESDB_HOST="$(jq --raw-output '.db_host // empty' $CONFIG_PATH)"
-    export DB_POSTGRESDB_USER="$(jq --raw-output '.db_user // empty' $CONFIG_PATH)"
-    export DB_POSTGRESDB_PASSWORD="$(jq --raw-output '.db_password // empty' $CONFIG_PATH)"
-    echo "POSTGRESDB"
+    DB_POSTGRESDB_HOST="$(bashio::config 'db_host')"
+    DB_POSTGRESDB_USER="$(bashio::config 'db_user')"
+    DB_POSTGRESDB_PASSWORD="$(bashio::config 'db_password')"
+    bashio::log.info "POSTGRESDB"
     break
     ;;
   *)
-    echo "sqlite"
+    bashio::log.info "sqlite"
     ;;
 esac
 
-export GENERIC_TIMEZONE="$(jq --raw-output '.timezone // empty' $CONFIG_PATH)"
-export WEBHOOK_URL="$(jq --raw-output '.webhook_url // empty' $CONFIG_PATH)"
-export WEBHOOK_TUNNEL_URL="$(jq --raw-output '.webhook_url // empty' $CONFIG_PATH)"
-export VUE_APP_URL_BASE_API="$(jq --raw-output '.webhook_url // empty' $CONFIG_PATH)"
+GENERIC_TIMEZONE="$(bashio::config 'timezone')"
+WEBHOOK_URL="$(bashio::config 'webhook_url')"
+WEBHOOK_TUNNEL_URL="$(bashio::config 'webhook_url')"
+VUE_APP_URL_BASE_API="$(bashio::config 'webhook_url')"
+N8N_PROTOCOL="$(bashio::config 'protocol')"
+N8N_HOST="$(bashio::config 'host')"
+N8N_PATH="$(bashio::config 'url_path')"
+NODE_FUNCTION_ALLOW_EXTERNAL="$(bashio::config 'allow_external')"
+NODE_FUNCTION_ALLOW_BUILTIN="$(bashio::config 'allow_builtin')"
+N8N_DIAGNOSTICS_ENABLED="$(bashio::config 'telemetry')"
 
-export N8N_PROTOCOL="$(jq --raw-output '.protocol // empty' $CONFIG_PATH)"
-export N8N_HOST="$(jq --raw-output '.host // empty' $CONFIG_PATH)"
-export N8N_PATH="$(jq --raw-output '.url_path // empty' $CONFIG_PATH)"
-export NODE_FUNCTION_ALLOW_EXTERNAL="$(jq --raw-output '.allow_external // empty' $CONFIG_PATH)"
-export NODE_FUNCTION_ALLOW_BUILTIN="$(jq --raw-output '.allow_builtin // empty' $CONFIG_PATH)"
-
-export N8N_DIAGNOSTICS_ENABLED="$(jq --raw-output '.telemetry // empty' $CONFIG_PATH)"
-
-
-export EXECUTIONS_DATA_PRUNE="$(jq --raw-output '.data_pruning // empty' $CONFIG_PATH)"
-if [ ${EXECUTIONS_DATA_PRUNE} ]; then
-    export EXECUTIONS_DATA_MAX_AGE="$(jq --raw-output '.data_max_age // empty' $CONFIG_PATH)"
-    export EXECUTIONS_DATA_PRUNE_MAX_COUNT="$(jq --raw-output '.data_max_count // empty' $CONFIG_PATH)"
-
+EXECUTIONS_DATA_PRUNE="$(bashio::config 'data_pruning')"
+if bashio::config.has_value 'EXECUTIONS_DATA_PRUNE'; then
+    EXECUTIONS_DATA_MAX_AGE="$(bashio::config 'data_max_age')"
+    EXECUTIONS_DATA_PRUNE_MAX_COUNT="$(bashio::config 'data_max_count')"
 fi
-
-
 export N8N_USER_FOLDER="${N8N_PATH_LOCAL}"
-
-if [ -z "${N8N_BASIC_AUTH_USER}" ] || [ -z "${N8N_BASIC_AUTH_ACTIVE}" ]; then
+if bashio::config.is_empty "${N8N_BASIC_AUTH_USER}"  || bashio::config.is_empty "${N8N_BASIC_AUTH_ACTIVE}"; then
     export N8N_BASIC_AUTH_ACTIVE=false
     unset N8N_BASIC_AUTH_USER
     unset N8N_BASIC_AUTH_PASSWORD
 fi
-echo "Done env variables"
+bashio::log.info "Done env variables"
 ###########
 ## MAIN  ##
 ###########
 echo "Main"
-if [ -d ${N8N_PATH_LOCAL} ] ; then
-  echo "-d ${N8N_PATH_LOCAL}"
-  #chmod o+rx ${N8N_PATH_LOCAL}
+if bashio::fs.directory_exists "${N8N_PATH_LOCAL}"; then
+  bashio::log.info "-d ${N8N_PATH_LOCAL}"
   chmod -R 777 ${N8N_PATH_LOCAL}
   chown -R node ${N8N_PATH_LOCAL}/.n8n
   ln -s ${N8N_PATH_LOCAL}/.n8n /home/node/
@@ -93,10 +83,8 @@ fi
 #chmod -R 777 /home/node
 #chown -R node /home/node
 
-echo "last step"
-
-
-echo "Got started without arguments"
+bashio::log.info "last step"
+bashio::log.info "Got started without arguments"
 exec su-exec node n8n
 
 #if [ "$#" -gt 0 ]; then
