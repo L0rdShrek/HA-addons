@@ -1,15 +1,18 @@
-ARG NODE_VERSION=16
-FROM node:${NODE_VERSION}-alpine
-
+ARG HA_BASE_VERSION=14.0.1
 ARG N8N_VERSION=0.233.0
 
+FROM ghcr.io/n8n-io/n8n:${N8N_VERSION} AS builder
+FROM ghcr.io/hassio-addons/base:${HA_BASE_VERSION}
 
-RUN if [ -z "$N8N_VERSION" ] ; then echo "The N8N_VERSION argument is missing!" ; exit 1; fi
+COPY --from=builder /usr/lib /usr/lib
+COPY --from=builder /usr/local/lib /usr/local/lib
+COPY --from=builder /usr/local/include /usr/local/include
+COPY --from=builder /usr/local/bin /usr/local/bin
 
 # Update everything and install needed dependencies
 RUN apk add --no-cache --update graphicsmagick tzdata git su-exec jq sqlite
 
-# # Set a custom user to not have n8n run as root
+# Set a custom user to not have n8n run as root
 USER root
 
 # Install n8n and the also temporary all the packages
@@ -34,7 +37,6 @@ COPY docker-entrypoint.sh /tmp/docker-entrypoint.sh
 ENTRYPOINT ["sh", "/tmp/docker-entrypoint.sh"]
 
 EXPOSE 5678/tcp
-
 
 # Build arguments
 ARG BUILD_ARCH
