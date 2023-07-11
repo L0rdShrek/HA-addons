@@ -7,29 +7,26 @@ Add-on documentation: <https://developers.home-assistant.io/docs/add-ons>
 [![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2FL0rdShrek%2FHA-addons)
 
 _Example add-on to use as a blueprint for new add-ons._
-### [n8n](./n8n)
-![Supports amd64 Architecture][amd64-shield]
-
-[amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
-
-![Supports aarch64 Architecture][aarch64-shield]
-
-[aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
+### &#10003;  [n8n](./n8n)
+![Version](https://img.shields.io/badge/dynamic/json?label=Version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Fl0rdshrek%2Fha-addons%2Fmaster%2Fn8n%2Fconfig.json) 
+![aarch64][aarch64-badge] 
+![amd64][amd64-badge]
 
 _The workflow automation platform that doesn't box you in, that you never outgrow._
 
 
-### [snowflake](./snowflake)
-![Supports amd64 Architecture][amd64-shield]
-
-[amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
+### &#10003;  [snowflake](./snowflake)
+![Version](https://img.shields.io/badge/dynamic/json?label=Version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Fl0rdshrek%2Fha-addons%2Fmaster%2Fsnowflake%2Fconfig.json) 
+![amd64][amd64-badge]
 
 _Snowflake is a system that **allows people from all over the world to access censored websites and applications**._
 
-### [searxng](./searxng)
+### &#10003;  [searxng](./searxng)
+![Version](https://img.shields.io/badge/dynamic/json?label=Version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Fl0rdshrek%2Fha-addons%2Fmaster%2Fsearxng%2Fconfig.json)
 
 
-### [AFFiNE](./AFFiNE)
+### &#10003;  [AFFiNE](./AFFiNE)
+![Version](https://img.shields.io/badge/dynamic/json?label=Version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Fl0rdshrek%2Fha-addons%2Fmaster%2FAFFiNE%2Fconfig.json)
 
 <!--
 Notes to developers after forking or using the github template feature:
@@ -48,3 +45,10 @@ Notes to developers after forking or using the github template feature:
 - Share your repository on the forums https://community.home-assistant.io/c/projects/9
 - Do awesome stuff!
  -->
+[aarch64-badge]: https://img.shields.io/badge/aarch64--green.svg?logo=arm
+[amd64-badge]: https://img.shields.io/badge/amd64--green.svg?logo=amd
+[armv7-badge]: https://img.shields.io/badge/armv7--green.svg?logo=arm
+[aarch64no-badge]: https://img.shields.io/badge/aarch64--orange.svg?logo=arm
+[amd64no-badge]: https://img.shields.io/badge/amd64--orange.svg?logo=amd
+[armv7no-badge]: https://img.shields.io/badge/armv7--orange.svg?logo=arm
+[ingress-badge]: https://img.shields.io/badge/-ingress-blueviolet.svg?logo=Ingress
