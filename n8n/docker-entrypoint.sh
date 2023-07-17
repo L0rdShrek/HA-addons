@@ -66,6 +66,10 @@ if [ ${EXECUTIONS_DATA_PRUNE} ]; then
 
 fi
 
+if [ ${N8N_ENCRYPTION_KEY} ]; then
+  export N8N_ENCRYPTION_KEY="$(jq --raw-output '.encryption_key // empty' $CONFIG_PATH)"
+fi
+
 
 export N8N_USER_FOLDER="${N8N_PATH_LOCAL}"
 

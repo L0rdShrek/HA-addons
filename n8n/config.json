@@ -33,6 +33,7 @@
     "data_pruning": false,
     "data_max_age": "168",
     "data_max_count": "50000",
+    "encryption_key": "",
     "certfile": "fullchain.pem",
     "keyfile": "privkey.pem"
   },
@@ -54,6 +55,7 @@
     "telemetry": "bool",
     "data_pruning": "bool",
     "data_max_age": "str?",
+    "encryption_key": "str?",
     "data_max_count": "str?",
     "certfile": "str?",
     "keyfile": "str?"
