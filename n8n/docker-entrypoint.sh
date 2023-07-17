@@ -48,7 +48,6 @@ esac
 
 export GENERIC_TIMEZONE="$(jq --raw-output '.timezone // empty' $CONFIG_PATH)"
 export WEBHOOK_URL="$(jq --raw-output '.webhook_url // empty' $CONFIG_PATH)"
-export WEBHOOK_TUNNEL_URL="$(jq --raw-output '.webhook_url // empty' $CONFIG_PATH)"
 export VUE_APP_URL_BASE_API="$(jq --raw-output '.webhook_url // empty' $CONFIG_PATH)"
 
 export N8N_PROTOCOL="$(jq --raw-output '.protocol // empty' $CONFIG_PATH)"
@@ -65,6 +64,10 @@ if [ ${EXECUTIONS_DATA_PRUNE} ]; then
     export EXECUTIONS_DATA_MAX_AGE="$(jq --raw-output '.data_max_age // empty' $CONFIG_PATH)"
     export EXECUTIONS_DATA_PRUNE_MAX_COUNT="$(jq --raw-output '.data_max_count // empty' $CONFIG_PATH)"
 
+fi
+
+if [ ${N8N_ENCRYPTION_KEY} ]; then
+  export N8N_ENCRYPTION_KEY="$(jq --raw-output '.encryption_key // empty' $CONFIG_PATH)"
 fi
 
 
