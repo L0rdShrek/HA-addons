@@ -1,5 +1,5 @@
 ARG HA_BASE_VERSION=14.0.2
-ARG N8N_VERSION=0.236.2
+ARG N8N_VERSION=0.236.3
 
 FROM ghcr.io/n8n-io/n8n:${N8N_VERSION} AS builder
 FROM ghcr.io/hassio-addons/base:${HA_BASE_VERSION}
